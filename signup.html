@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="../CSS/Style.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="https://fonts.googleapis.com/css?family=Rubik|Varela+Round" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="CSS/style.css">
+		<title>הרשמה</title>
+		
+	
+        <script>
+     
+		function onlyHebrew()
+		{
+		var txt=document.getElementById("fullname");
+		var length=txt.value.length-1;
+			if(!((txt.value.charAt(length)>='א'&&txt.value.charAt(length)<='ת')||txt.value.charAt(length)==" "))
+				{
+					txt.value="";
+					txt.style.borderColor="red";
+					txt.placeholder="בבקשה להקליד שם בעברית";
+					return false;
+
+				}
+				else
+				txt.style.borderColor="inherit";
+
+			return true;
+		}
+
+		function onlyDigits(nameof)
+		{
+		var txt=document.getElementById(nameof);
+		var length=txt.value.length-1;
+			if(!(txt.value.charAt(length)>='0'&&txt.value.charAt(length)<='9'))
+				{
+					txt.value="";
+					txt.style.borderColor="red";
+					txt.placeholder="נא להקליד מספרים בלבד";
+					return false;
+
+				}
+				else
+				txt.style.borderColor="inherit";
+
+			return true;
+		}
+
+		function TelValidation()
+		{
+		var txt=document.getElementById("tel");
+		var length=txt.value.length;
+			if(length<10)
+				{
+					window.alert("חסרות ספרות בטלפון");
+					txt.style.borderColor="red";
+					return false;
+				}
+				else
+					if(txt.value.substring(0,2)!="05")
+					{
+					 window.alert("חייב להתחיל ב 05");
+					txt.style.borderColor="red";
+					return false;
+					}
+					else
+				txt.style.borderColor="inherit";
+
+			return true;
+		}
+
+		function IDValidation()
+		{
+		    var txt = document.getElementById("id");
+		    if (txt.value.length < 9)
+		    {
+		        window.alert("מספר זהות קטן מדי");
+		        txt.style.borderColor = "red";
+		        return false;
+
+		    }
+		    else
+		        txt.style.borderColor = "inherit";
+
+		    return true;
+		}
+
+		function validateAll()
+		{
+		    return TelValidation() && onlyHebrew() && onlyDigits('age') && onlyDigits('tel') && onlyDigits('id') && IDValidation();
+		} 
+
+
+        </script>	
+
+</head>
+	<body dir=rtl>
+<br><br>
+  <img class="center" src="../CSS/pics/artfriend logo transparent no stroke.png" /></a>
+   <h2 style="text-align:center">הפגת הבדידות באמצעות ציורים</h2>
+
+	<br>
+  	<h2 class="user_msg">רישום למערכת</h2>
+
+	<form id="RegistrationForm" method ="post" action=" ">
+	
+	<div class="row">
+      <div class="col-3">
+        <input onkeyup="onlyHebrew()" type="text" name="username" placeholder="שם מלא" required>
+        <input type="email" name="email" placeholder="כתובת מייל" required>
+		<input type="password" name="password" placeholder="סיסמא" required>
+		<input type="identification" name="identification" placeholder="מנטור/צייר" required>
+        <input type="submit" value="רישום">
+      </div>
+    </form>
+	 </div>
+</main>
+
+</body>
+
+</html>
